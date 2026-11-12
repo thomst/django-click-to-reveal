@@ -3,7 +3,7 @@ name: Publish django-click-to-reveal to PyPI
 on:
   push:
     tags:
-      - "v*"
+      - "*"
   workflow_dispatch:
 
 permissions:
