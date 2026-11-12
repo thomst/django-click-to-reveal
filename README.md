@@ -2,7 +2,9 @@
 
 [![Tests](https://github.com/thomst/django-click-to-reveal/actions/workflows/tests.yml/badge.svg)](https://github.com/thomst/django-click-to-reveal/actions/workflows/tests.yml)
 [![PyPI version](https://img.shields.io/pypi/v/django-click-to-reveal)](https://pypi.org/project/django-click-to-reveal/)
-[![Python versions](https://img.shields.io/pypi/pyversions/django-click-to-reveal)](https://pypi.org/project/django-click-to-reveal/)
+[![Coverage](https://coveralls.io/repos/github/thomst/django-reorder-items-widget/badge.svg?branch=main)](https://coveralls.io/github/thomst/django-reorder-items-widget?branch=main)
+[![Python 3](https://img.shields.io/badge/python-3-blue)](https://img.shields.io/badge/python-3-blue)
+[![Django versions](https://img.shields.io/badge/django-3.2%20%7C%204.0%20%7C%204.1%20%7C%204.2%20%7C%205.0%20%7C%205.1%20%7C%205.2%20%7C%206.0-orange)](https://img.shields.io/badge/django-3.2%20%7C%204.0%20%7C%204.1%20%7C%204.2%20%7C%205.0%20%7C%205.1%20%7C%205.2%20%7C%206.0-orange)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue)](LICENCE)
 
 Reveal an email address on demand in a Django template. The address is stored
