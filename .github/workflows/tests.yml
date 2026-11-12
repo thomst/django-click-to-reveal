@@ -47,7 +47,7 @@ jobs:
           python -m pip install coverage "${{ matrix.django-version }}" .
 
       - name: Run tests
-        run: python -m coverage run --source=click_to_reveal tests/manage.py test tests/testproject
+        run: python -m coverage run --source=click_to_reveal tests/manage.py test testproject
 
       - name: Generate coverage report
         run: python -m coverage lcov -o coverage.lcov
