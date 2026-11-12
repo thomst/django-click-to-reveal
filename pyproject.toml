@@ -56,3 +56,6 @@ click_to_reveal = ["templates/click_to_reveal/*.html"]
 
 [tool.setuptools.dynamic]
 version = {attr = "click_to_reveal.__version__.__version__"}
+
+[tool.check-wheel-contents]
+ignore = ["W004"]
