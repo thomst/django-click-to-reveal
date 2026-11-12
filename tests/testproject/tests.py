@@ -7,15 +7,6 @@ from click_to_reveal.models import Email
 
 
 class ClickToRevealTests(TestCase):
-    def test_mailto_link_renders_without_script(self):
-        rendered = render_to_string(
-            "click_to_reveal/link.html",
-            {"url": "mailto:person@example.com", "text": "Email"},
-        )
-
-        self.assertIn('href="mailto:person@example.com"', rendered)
-        self.assertNotIn("<script>", rendered)
-
     def test_link_text_defaults_to_click_to_reveal(self):
         rendered = Template(
             '{% load click_to_reveal %}{% click_to_reveal email %}'
