@@ -12,7 +12,7 @@ Run the compatibility matrix with tox:
 tox
 ```
 
-The tox matrix tests one Python version per Django version: Python 3.7 with
+The tox matrix tests one Python version per Django version: Python 3.8 with
 Django 3.2, Python 3.8 with Django 4.0, Python 3.10 with Django 4.2, Python
 3.12 with Django 5.2, Python 3.13 with Django 6.0, and Python 3.14 with
 Django 6.1.
