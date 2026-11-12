@@ -13,3 +13,5 @@ __pycache__/
 
 /tests/db.sqlite3*
 /.vscode/
+
+/.python-version
