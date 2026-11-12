@@ -8,7 +8,7 @@ const template = readFileSync(
     join(__dirname, "../click_to_reveal/templates/click_to_reveal/link.html"),
     "utf8",
 );
-assert.match(template, /<\/a>\s*{% if [^%]+%}\s*<script>/);
+assert.match(template, /<\/a>\s*<script>/);
 const script = template.match(/<script>([\s\S]*?)<\/script>/)[1];
 
 function makeLink(href) {
