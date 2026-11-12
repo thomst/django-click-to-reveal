@@ -54,3 +54,13 @@ jobs:
           node-version: "20"
       - name: Run JavaScript tests
         run: node --test tests/click-to-reveal.test.js
+
+  finish:
+    needs: [test, test-javascript]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true
