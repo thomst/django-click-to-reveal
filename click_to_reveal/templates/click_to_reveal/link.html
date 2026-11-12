@@ -1,0 +1,27 @@
+<a href="{{ url }}">{{ text }}</a>
+<script>
+    (function () {
+        "use strict";
+
+        const link = document.currentScript.previousElementSibling;
+        function revealEmail(event) {
+            event.preventDefault();
+            fetch(link.href)
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error();
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    link.textContent = data.email;
+                    link.href = "mailto:" + data.email;
+                    link.removeEventListener("click", revealEmail);
+                })
+                .catch(function () {
+                    link.textContent = "Unable to load email";
+                });
+        }
+        link.addEventListener("click", revealEmail);
+    }());
+</script>
