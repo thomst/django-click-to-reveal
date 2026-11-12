@@ -38,10 +38,19 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install "${{ matrix.django-version }}" .
+          python -m pip install "${{ matrix.django-version }}" "coverage>=7.6.1" .
 
       - name: Run tests
-        run: python tests/manage.py test testproject
+        run: |
+          python -m coverage run --source=click_to_reveal tests/manage.py test testproject
+          python -m coverage xml
+
+      - name: Upload coverage
+        uses: coverallsapp/github-action@v2.3.8
+        with:
+          file: coverage.xml
+          flag-name: python-${{ matrix.python-version }}-${{ strategy.job-index }}
+          parallel: true
 
   test-javascript:
     runs-on: ubuntu-latest
@@ -59,8 +68,7 @@ jobs:
     needs: [test, test-javascript]
     runs-on: ubuntu-latest
     steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@v2.3.8
+        with:
+          parallel-finished: true
