@@ -1,9 +1,32 @@
+import subprocess
+import sys
+from pathlib import Path
+
 from django.template import Context, Template
 from django.template.loader import render_to_string
-from django.test import TestCase
+from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
 from click_to_reveal.models import Email
+
+
+class TestProjectRunnerTests(SimpleTestCase):
+    def test_manage_py_without_script_directory_on_python_path(self):
+        manage_py = Path(__file__).resolve().parent.parent / "manage.py"
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-I",
+                "-c",
+                'import runpy, sys; sys.argv = [sys.argv[1], "check"]; '
+                'runpy.run_path(sys.argv[0], run_name="__main__")',
+                str(manage_py),
+            ],
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
 
 
 class ClickToRevealTests(TestCase):
